@@ -20,6 +20,15 @@ use App\Http\Controllers\backend\PlaceController;
 use App\Http\Controllers\backend\MapController;
 use App\Http\Controllers\backend\PopularDesController;
 use App\Http\Controllers\backend\OrderController;
+
+use App\Http\Controllers\backend\albumCatContoller;
+use App\Http\Controllers\backend\albumContoller;
+
+use App\Http\Controllers\backend\ClientContoller;
+use App\Http\Controllers\backend\ClientCatContoller;
+
+
+
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\IndexController;
 
@@ -141,7 +150,45 @@ Route::middleware(['auth:admin', 'verified'])->get('/admin/dashboard', function 
     Route::get('admin/news/delete/{id}',[NewsController::class,'delete'])->name('news.delete');
 
 
+
+   
+    //album Category
+   
+    // Route::get('admin/all/news/category',[albumCatContoller::class,'index'])->name('news.category.index');
+    //  Route::get('admin/news/category/add',[albumCatContoller::class,'addCategory'])->name('news.category.add');
+
+    // Route::post('admin/news/category/store',[albumCatContoller::class,'store'])->name('news.category.store');
+
+    // Route::get('admin/news/category/edit/{id}',[albumCatContoller::class,'edit'])->name('news.category.edit');
+
+    // Route::post('admin/news/category/update/{id}',[albumCatContoller::class,'update'])->name('news.category.update');
+    // Route::get('admin/news/category/delete/{id}',[albumCatContoller::class,'delete'])->name('news.category.delete');
+
+ //album
+
+    //Route::get('admin/all/news',[albumContoller::class,'index'])->name('news.all');
+    Route::resource('admin/album', albumContoller::class);
+
+    //  Route::get('admin/news/add',[NewsController::class,'addNews'])->name('news.add');
+
+    // Route::post('admin/news/store',[NewsController::class,'store'])->name('news.store');
+
+    // Route::get('admin/news/edit/{id}',[NewsController::class,'edit'])->name('news.edit');
+
+    // Route::post('admin/news/update/{id}',[NewsController::class,'update'])->name('news.update');
+    // Route::get('admin/news/delete/{id}',[NewsController::class,'delete'])->name('news.delete');
+
+    //client
+     Route::resource('admin/Client', ClientContoller::class);
+     Route::get('admin/client/delete/{id}',[ClientContoller::class,'delete'])->name('client.delete');
+
+     Route::resource('admin/Client-category', ClientCatContoller::class);
+      Route::get('admin/client/cat/delete/{id}',[ClientCatContoller::class,'delete'])->name('client.cat.delete');
+
+
     //slider
+
+
 
    
 

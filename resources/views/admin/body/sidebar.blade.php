@@ -65,17 +65,38 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities2"
                     aria-expanded="true" aria-controls="collapseUtilities2">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>News</span>
+                    <span>Blogs</span>
                 </a>
                 <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                        
-                        <a class="collapse-item" href="{{route('news.category.index')}}">News Category</a>
-                        <a class="collapse-item" href="{{route('news.all')}}">All News</a>
+                        <a class="collapse-item" href="{{route('news.category.index')}}">blog Category</a>
+                        <a class="collapse-item" href="{{route('news.all')}}">All Blog</a>
                         
                     </div>
                 </div>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities2"
+                    aria-expanded="true" aria-controls="collapseUtilities2">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Client</span>
+                </a>
+                <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                       
+                        <a class="collapse-item" href="{{route('Client-category.index')}}"> Client Category</a>
+                        <a class="collapse-item" href="{{route('Client.index')}}">All client</a>
+                        
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('about.all')}}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>About Me</span></a>
             </li>
 
              <li class="nav-item">

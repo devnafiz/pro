@@ -7,7 +7,7 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
                         <a href="{{route('about.all')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-list fa-sm text-white-50"></i>  Overview List</a>
+                                class="fas fa-list fa-sm text-white-50"></i>  About Me</a>
                     </div>
 
                     <!-- Content Row -->
@@ -25,21 +25,27 @@
                     <div class="col-lg-12">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Edit Overview </h1>
+                                <h1 class="h4 text-gray-900 mb-4">Edit About </h1>
                             </div>
                             <form class="user" method="POST"  action="{{route('about.update',$edit_data->id)}}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group ">
                                     <div class="col-sm-12 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control " placeholder="{{ __('Please enter TopHeading') }}" type="text" id="title" name="title" value="{{$edit_data->title}}">
+                                        <input type="text" class="form-control " placeholder="{{ __('Please enter Name') }}" type="text" id="title" name="title" value="{{$edit_data->title}}">
                                     </div>
                                     
                                 </div>
                                 
 
-                                 <div class="form-group ">
+                                 <!-- <div class="form-group ">
                                     <div class="col-sm-12 mb-3 mb-sm-0">
                                         <input type="text" class="form-control " placeholder="{{ __('Please enter  slug') }}" type="text" id="slug" name="slug" value="{{$edit_data->slug}}">
+                                    </div>
+                                    
+                                </div> -->
+                                 <div class="form-group ">
+                                    <div class="col-sm-12 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control " placeholder="{{ __('Please enter  Short description') }}" type="text" id="slug" name="short_des" value="{{$edit_data->short_des}}">
                                     </div>
                                     
                                 </div>

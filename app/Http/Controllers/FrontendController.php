@@ -23,14 +23,14 @@ class FrontendController extends Controller
         $data['lang'] = session()->get('changed_language');
         $data['sliders']= Slider::where('status','1')->orderBy('id','desc')->limit(8)->get();
         $data['maps']= Map::where('status','1')->orderBy('id','desc')->limit(5)->get();
-          $data['p_des']= PopularDes::where('status','1')->orderBy('id','desc')->limit(3)->get();
+        $data['p_des']= PopularDes::where('status','1')->orderBy('id','desc')->limit(3)->get();
         $data['news']=News::where('status','1')->orderBy('id','desc')->limit(3)->get();
           //dd($data['news']);
-          $data['overview']= About::where('status','1')->first();  
+        $data['overview']= About::where('status','1')->first();  
         $data['place']= Place::where('status','1')->orderBy('id','desc')->limit(4)->get();
       // dd($data);
 
-     return view('frontend.home',$data);
+     return view('frontend.index',$data);
 
     }
 

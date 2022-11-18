@@ -9,6 +9,6 @@ class About extends Model
 {
     use HasFactory;
      protected $fillable = [
-        'title', 'image', 'des','status','slug'
+        'title', 'image', 'des','status','slug','short_des'
     ];
 }

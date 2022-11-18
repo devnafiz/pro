@@ -82,12 +82,13 @@ class AboutController extends Controller
      }
 
      public function update(Request $request,$id){
-
+        //dd($request->all());
         $news = About::findOrFail($id);
         $input = array_filter($request->all());
 
       
         $input['title'] = $request->title;
+        $input['short_des'] = $request->short_des;
       
         $input['des'] = $request->des;
         $input['slug'] = Str::slug($request->title, '-');
