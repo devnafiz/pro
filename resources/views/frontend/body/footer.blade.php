@@ -7,7 +7,7 @@
 
                             <div class="logo">
                                 <a href="index.html">
-                                    <img src="assets/images/logo/logo-vertical.png" alt="logo">
+                                    <img src="{{asset($overview->image)}}" alt="logo">
                                 </a>
                             </div>
 
@@ -20,7 +20,8 @@
         <!-- End Footer Area -->
         <!-- modal area -->
         <!-- Modal Portfolio Body area Start -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+        @foreach($portfolio as $k=>$val)
+        <div class="modal fade" id="exampleModalCenterPort_{{$k}}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -34,7 +35,7 @@
                             <div class="col-lg-6">
                                 <div class="portfolio-popup-thumbnail">
                                     <div class="image">
-                                        <img class="w-100" src="assets/images/portfolio/portfolio-04.jpg" alt="slide">
+                                        <img class="w-100" src="{{asset($val->image)}}" alt="slide">
                                     </div>
                                 </div>
                             </div>
@@ -42,10 +43,9 @@
                             <div class="col-lg-6">
                                 <div class="text-content">
                                     <h3>
-                                        <span>Featured - Design</span> App Design Development.
+                                        <span>Featured - {{$val->port_category->name}}</span> {{$val->heading}}.
                                     </h3>
-                                    <p class="mb--30">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate distinctio assumenda explicabo veniam temporibus eligendi.</p>
-                                    <p>Consectetur adipisicing elit. Cupiditate distinctio assumenda. dolorum alias suscipit rerum maiores aliquam earum odit, nihil culpa quas iusto hic minus!</p>
+                                    <p class="mb--30">{{$val->des}}</p>
                                     <div class="button-group mt--20">
                                         <a href="#" class="rn-btn thumbs-icon">
                                             <span>LIKE THIS</span>
@@ -66,6 +66,7 @@
                 </div>
             </div>
         </div>
+        @endforeach
         <!-- End Modal Portfolio area -->
         <!-- Modal Blog Body area Start -->
         <div class="modal fade" id="exampleModalCenters" tabindex="-1" role="dialog" aria-hidden="true">

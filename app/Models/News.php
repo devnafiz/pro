@@ -16,4 +16,9 @@ class News extends Model
         'heading', 'image', 'des','user','status','about','cat_id','post','slug'
     ];
 
+    public function newscat(){
+
+    	return $this->belongsTo(News_cat::class,'cat_id','id');
+    }
+
 }

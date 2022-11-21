@@ -63,6 +63,17 @@ class MapController extends Controller
 
         $input['name'] = $request->name;
         $input['link'] = $request->link;
+          if( $request->file('image')){
+         $image = $request->file('image');
+        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+        Image::make($image)->resize(300,300)->save('backend/map/'.$name_gen);
+        $save_url = 'backend/map/'.$name_gen;
+
+
+       
+       
+        $input['image'] = $save_url;
+        }
        
        // dd($input['des']);
 
@@ -71,7 +82,7 @@ class MapController extends Controller
         $input['status']=$request->status;
         $map->create($input);
 
-        return redirect()->route('map.all')->with("added", __("Map has been created !"));
+        return redirect()->route('feature.all')->with("added", __("Map has been created !"));
 
 
 
@@ -103,13 +114,14 @@ class MapController extends Controller
         
         $news->update($input);
 
-        return redirect()->route('map.all')->with('updated', __('Map  has been updated !'));
+        return redirect()->route('feature.all')->with('updated', __('Map  has been updated !'));
 
 
      }
 
 
      public function delete($id){
+        dd($id);
 
          $map = Map::find($id);
 
@@ -118,7 +130,7 @@ class MapController extends Controller
         $value = $map->delete();
         if ($value) {
             session()->flash("deleted", __("Map has been deleted"));
-            return redirect()->route('map.all');
+            return redirect()->route('feature.all');
         }
      }
 }

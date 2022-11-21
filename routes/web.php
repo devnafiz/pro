@@ -24,8 +24,13 @@ use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\backend\albumCatContoller;
 use App\Http\Controllers\backend\albumContoller;
 
+use App\Http\Controllers\backend\ResumeController;
+
+
 use App\Http\Controllers\backend\ClientContoller;
 use App\Http\Controllers\backend\ClientCatContoller;
+use App\Http\Controllers\backend\PortfolioController;
+use App\Http\Controllers\backend\PortfolioCatController;
 
 
 
@@ -168,6 +173,17 @@ Route::middleware(['auth:admin', 'verified'])->get('/admin/dashboard', function 
 
     //Route::get('admin/all/news',[albumContoller::class,'index'])->name('news.all');
     Route::resource('admin/album', albumContoller::class);
+    Route::get('admin/album//delete/{id}',[albumContoller::class,'delete'])->name('album.delete');
+
+    Route::resource('admin/album-category', albumCatContoller::class);
+    Route::get('admin/album/name/delete/{id}',[albumCatContoller::class,'delete'])->name('album.cat.delete');
+
+    Route::resource('admin/resume', ResumeController::class);
+
+    Route::get('admin/resume/category/show',[ResumeController::class,'resumeCat1'])->name('resume.cat');
+    Route::get('admin/resume/category/{id}',[ResumeController::class,'CreateResume'])->name('resume.create');
+    Route::get('admin/resume/delete/{id}',[ResumeController::class,'delete'])->name('resume.delete');
+
 
     //  Route::get('admin/news/add',[NewsController::class,'addNews'])->name('news.add');
 
@@ -184,6 +200,16 @@ Route::middleware(['auth:admin', 'verified'])->get('/admin/dashboard', function 
 
      Route::resource('admin/Client-category', ClientCatContoller::class);
       Route::get('admin/client/cat/delete/{id}',[ClientCatContoller::class,'delete'])->name('client.cat.delete');
+
+
+
+    Route::resource('admin/portfolio', PortfolioController::class);
+    Route::get('admin/portfolio/delete/{id}',[PortfolioController::class,'delete'])->name('portfolio.delete');
+
+    Route::resource('admin/portfolio-category', PortfolioCatController::class);
+    Route::get('admin/portfolio/cat/delete/{id}',[PortfolioCatController::class,'delete'])->name('portfolio.cat.delete');
+
+
 
 
     //slider
@@ -231,15 +257,15 @@ Route::middleware(['auth:admin', 'verified'])->get('/admin/dashboard', function 
     //Map
 
 
-    Route::get('admin/all/map',[MapController::class,'index'])->name('map.all');
-    Route::get('admin/map/add',[MapController::class,'addMap'])->name('map.add');
+    Route::get('admin/all/feature',[MapController::class,'index'])->name('feature.all');
+    Route::get('admin/feature/add',[MapController::class,'addMap'])->name('feature.add');
 
-    Route::post('admin/map/store',[MapController::class,'store'])->name('map.store');
+    Route::post('admin/feature/store',[MapController::class,'store'])->name('feature.store');
 
-    Route::get('admin/map/edit/{id}',[MapController::class,'edit'])->name('map.edit');
+    Route::get('admin/feature/edit/{id}',[MapController::class,'edit'])->name('feature.edit');
 
-    Route::post('admin/map/update/{id}',[MapController::class,'update'])->name('map.update');
-    Route::get('admin/map/delete/{id}',[MapController::class,'delete'])->name('map.delete');
+    Route::post('admin/feature/update/{id}',[MapController::class,'update'])->name('feature.update');
+    Route::get('admin/feature/delete/{id}',[MapController::class,'delete'])->name('feature.delete');
 
 
 
@@ -255,6 +281,17 @@ Route::middleware(['auth:admin', 'verified'])->get('/admin/dashboard', function 
 
     Route::post('admin/des/update/{id}',[PopularDesController::class,'update'])->name('des.update');
     Route::get('admin/des/delete/{id}',[PopularDesController::class,'delete'])->name('des.delete');
+
+    //order
+
+   Route::get('admin/pending/order/view',[OrderController::class,'index'])->name('pending.order');
+
+    Route::get('admin/order/view/detail/{id}',[OrderController::class,'orderDetails'])->name('order.details');
+    Route::post('admin/order/view/edit/{id}',[OrderController::class,'orderStatus'])->name('order.update');
+
+    Route::get('admin/accepted/order/view',[OrderController::class,'activeOrder'])->name('active.order');
+     Route::get('admin/cancel/order/view',[OrderController::class,'CancelOrder'])->name('cancel.order');
+
 
 
     //pages
@@ -302,15 +339,7 @@ Route::middleware(['auth:admin', 'verified'])->get('/admin/dashboard', function 
     Route::get('/admin/seo', [OrderController::class, 'seo'])->name('admin.seo');
     Route::post('/admin/seo/update', [OrderController::class, 'updateSeo'])->name('update.seo');
 
-   //order
-
-   Route::get('admin/pending/order/view',[OrderController::class,'index'])->name('pending.order');
-
-    Route::get('admin/order/view/detail/{id}',[OrderController::class,'orderDetails'])->name('order.details');
-    Route::post('admin/order/view/edit/{id}',[OrderController::class,'orderStatus'])->name('order.update');
-
-    Route::get('admin/accepted/order/view',[OrderController::class,'activeOrder'])->name('active.order');
-     Route::get('admin/cancel/order/view',[OrderController::class,'CancelOrder'])->name('cancel.order');
+ 
 
 
 
@@ -319,7 +348,7 @@ Route::middleware(['auth:admin', 'verified'])->get('/admin/dashboard', function 
 
 
 
-    Route::get('/',[FrontendController::class,'index']);
+    Route::get('/',[FrontendController::class,'index'])->name('home');
 
     Route::get('/changelang', [GuestController::class,'changelang'])->name('changelang');
 
@@ -345,5 +374,8 @@ Route::middleware(['auth:admin', 'verified'])->get('/admin/dashboard', function 
 
 
     Route::post('/new/order',[IndexController::class,'OrderSave'])->name('new.order');
+
+    Route::get('album/name',[FrontendController::class,'albumCat'])->name('album.cat');
+    Route::get('album/photo/{cat_name}',[FrontendController::class,'albumCatPhoto'])->name('album.photo');
 
 

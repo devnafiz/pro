@@ -12,8 +12,14 @@ use App\Models\News_cat;
 use App\Models\Page;
 use App\Models\Slider;
 use App\Models\Map;
-use App\Models\PopularDes;
 use App\Models\About;
+use App\Models\Portfolio;
+use App\Models\PortfolioCat;
+use App\Models\ClientCat;
+use App\Models\Client;
+
+use App\Models\AlbumCat;
+use App\Models\Album;
 
 class FrontendController extends Controller
 {
@@ -23,11 +29,15 @@ class FrontendController extends Controller
         $data['lang'] = session()->get('changed_language');
         $data['sliders']= Slider::where('status','1')->orderBy('id','desc')->limit(8)->get();
         $data['maps']= Map::where('status','1')->orderBy('id','desc')->limit(5)->get();
-        $data['p_des']= PopularDes::where('status','1')->orderBy('id','desc')->limit(3)->get();
+       // $data['p_des']= PopularDes::where('status','1')->orderBy('id','desc')->limit(3)->get();
+        $data['client_cat']= ClientCat::where('status','1')->orderBy('id','desc')->limit(6)->get();
+        $data['client_front']= Client::where('status','1')->orderBy('id','desc')->limit(9)->get();
+        $data['portfolio']= Portfolio::where('status','1')->orderBy('id','desc')->limit(6)->get();
         $data['news']=News::where('status','1')->orderBy('id','desc')->limit(3)->get();
           //dd($data['news']);
         $data['overview']= About::where('status','1')->first();  
         $data['place']= Place::where('status','1')->orderBy('id','desc')->limit(4)->get();
+         $data['page_name'] ='Home';
       // dd($data);
 
      return view('frontend.index',$data);
@@ -108,6 +118,50 @@ class FrontendController extends Controller
                           ->where('news.cat_id',$category)
                           ->paginate(10);
         return view('frontend.news-category-wise',$data);   
+
+
+    }
+
+    public function albumCat(){
+     
+       
+        $data['maps']= Map::where('status','1')->orderBy('id','desc')->limit(5)->get();
+       // $data['p_des']= PopularDes::where('status','1')->orderBy('id','desc')->limit(3)->get();
+        $data['client_cat']= ClientCat::where('status','1')->orderBy('id','desc')->limit(6)->get();
+        $data['client_front']= Client::where('status','1')->orderBy('id','desc')->limit(9)->get();
+        $data['portfolio']= Portfolio::where('status','1')->orderBy('id','desc')->limit(6)->get();
+        $data['news']=News::where('status','1')->orderBy('id','desc')->limit(3)->get();
+          //dd($data['news']);
+       
+      
+
+          $data['album_name']=AlbumCat::all();
+           $data['page_name'] ='Album';
+
+          return view('frontend.album_name',$data);  
+
+
+    }
+
+    public function albumCatPhoto(Request $request,$id){
+
+       
+        $data['maps']= Map::where('status','1')->orderBy('id','desc')->limit(5)->get();
+       // $data['p_des']= PopularDes::where('status','1')->orderBy('id','desc')->limit(3)->get();
+        $data['client_cat']= ClientCat::where('status','1')->orderBy('id','desc')->limit(6)->get();
+        $data['client_front']= Client::where('status','1')->orderBy('id','desc')->limit(9)->get();
+        $data['portfolio']= Portfolio::where('status','1')->orderBy('id','desc')->limit(6)->get();
+        $data['news']=News::where('status','1')->orderBy('id','desc')->limit(3)->get();
+          //dd($data['news']);
+       
+      
+
+          $data['album_name']=AlbumCat::all();
+          $data['album_photo']=Album::where('cat_id',$id)->paginate();
+          $data['album_detail']=AlbumCat::where('id',$id)->first();
+          $data['page_name'] ='Album';
+
+          return view('frontend.album_photo',$data);  
 
 
     }

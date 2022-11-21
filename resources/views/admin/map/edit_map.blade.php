@@ -6,8 +6,8 @@
     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="{{route('slider.all')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-list fa-sm text-white-50"></i>  Slider List</a>
+                        <a href="{{route('feature.all')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-list fa-sm text-white-50"></i>  Feature List</a>
                     </div>
 
                     <!-- Content Row -->
@@ -25,9 +25,9 @@
                     <div class="col-lg-12">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Edit Slide </h1>
+                                <h1 class="h4 text-gray-900 mb-4">Edit Feature </h1>
                             </div>
-                            <form class="user" method="POST"  action="{{route('map.update',$edit_data->id)}}" enctype="multipart/form-data">
+                            <form class="user" method="POST"  action="{{route('feature.update',$edit_data->id)}}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group ">
                                     <div class="col-sm-12 mb-3 mb-sm-0">
@@ -40,7 +40,7 @@
                                 
                                 <div class="form-group ">
                                     <div class="col-sm-12 mb-3 mb-sm-0">
-                                      <label for="map"> Enter  full iframe map</label>
+                                     <label for="map"> Short description</label>
                                       <textarea class="form-control" name="link">
                                         {{$edit_data->link}}
                                       </textarea>
@@ -62,6 +62,23 @@
                                           <br>
                                  <input type="hidden" name="status" value="1" id="status3">
                                          <small class="text-info"> <i class="text-dark feather icon-help-circle"></i>({{__('Please Choose Status')}})</small>
+                                        </div>
+                                        <div class="col-sm-6">
+                                             <label class="control-label" for="first-name"> {{__("Image")}} <span class="required">*</span>
+                                          </label>
+                                              <div class="input-group">
+
+                                                <input required  id="image" name="image" type="file"
+                                                    class="form-control">
+                                                <!-- <div class="input-group-append">
+                                                    <span data-input="image"
+                                                        class="bg-primary text-light midia-toggle input-group-text">{{ __("Browse") }}</span>
+                                                </div> -->
+                                              </div>
+                                               <img src=" {{url('/'.$edit_data->image)}}"
+                  class="pro-img"  width="50" height="50" />
+                                              <small class="text-info"> <i class="text-dark feather icon-help-circle"></i>({{__("Choose Image for blog post")}})</small>
+
                                         </div>
                                         
                                     </div>

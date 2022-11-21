@@ -60,7 +60,7 @@
     <script src="{{asset('frontend/assets/js/vendor/particles.js')}}"></script>
     <script src="{{asset('frontend/assets/js/vendor/jquery-one-page-nav.js')}}"></script>
     <!-- main JS -->
-    <script src="assets/js/main.js"></script>
+    <script src="{{asset('frontend/assets/js/main.js')}}"></script>
 
     <script>
         particlesJS('particles-js',

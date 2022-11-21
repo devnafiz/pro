@@ -14,6 +14,6 @@ class Map extends Model
     public $translatable = ['name'];
 
     protected $fillable = [
-        'name', 'link' 
+        'name', 'link','image'
     ];
 }
