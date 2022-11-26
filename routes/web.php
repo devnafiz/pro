@@ -25,6 +25,9 @@ use App\Http\Controllers\backend\albumCatContoller;
 use App\Http\Controllers\backend\albumContoller;
 
 use App\Http\Controllers\backend\ResumeController;
+use App\Http\Controllers\backend\ActivityController;
+use App\Http\Controllers\backend\SocialActivityController;
+use App\Http\Controllers\backend\AchievementController;
 
 
 use App\Http\Controllers\backend\ClientContoller;
@@ -153,6 +156,50 @@ Route::middleware(['auth:admin', 'verified'])->get('/admin/dashboard', function 
 
     Route::post('admin/news/update/{id}',[NewsController::class,'update'])->name('news.update');
     Route::get('admin/news/delete/{id}',[NewsController::class,'delete'])->name('news.delete');
+
+
+    //Activity
+
+
+    //news
+
+    Route::get('admin/all/activity',[ActivityController::class,'index'])->name('activity.all');
+     Route::get('admin/activity/add',[ActivityController::class,'addNews'])->name('activity.add');
+
+    Route::post('admin/activity/store',[ActivityController::class,'store'])->name('activity.store');
+
+    Route::get('admin/activity/edit/{id}',[ActivityController::class,'edit'])->name('activity.edit');
+
+    Route::post('admin/activity/update/{id}',[ActivityController::class,'update'])->name('activity.update');
+    Route::get('admin/activity/delete/{id}',[ActivityController::class,'delete'])->name('activity.delete');
+
+   //social Activity    
+    Route::get('admin/all/social/activity',[SocialActivityController::class,'index'])->name('social.activity.all');
+     Route::get('admin/social/activity/add',[SocialActivityController::class,'addNews'])->name('social.activity.add');
+
+    Route::post('admin/social/activity/store',[SocialActivityController::class,'store'])->name('social.activity.store');
+
+    Route::get('admin/social/activity/edit/{id}',[SocialActivityController::class,'edit'])->name('social.activity.edit');
+
+    Route::post('admin/social/activity/update/{id}',[SocialActivityController::class,'update'])->name('social.activity.update');
+    Route::get('admin/social/activity/delete/{id}',[SocialActivityController::class,'delete'])->name('social.activity.delete');
+
+
+
+    //Achievement
+
+    //news
+
+    Route::get('admin/all/achievement',[AchievementController::class,'index'])->name('achievement.all');
+     Route::get('admin/achievement/add',[AchievementController::class,'addNews'])->name('achievement.add');
+
+    Route::post('admin/achievement/store',[AchievementController::class,'store'])->name('achievement.store');
+
+    Route::get('admin/achievement/edit/{id}',[AchievementController::class,'edit'])->name('achievement.edit');
+
+    Route::post('admin/achievement/update/{id}',[AchievementController::class,'update'])->name('achievement.update');
+    Route::get('admin/achievement/delete/{id}',[AchievementController::class,'delete'])->name('achievement.delete');
+
 
 
 

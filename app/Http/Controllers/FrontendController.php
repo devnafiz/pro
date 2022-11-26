@@ -21,6 +21,10 @@ use App\Models\Client;
 use App\Models\AlbumCat;
 use App\Models\Album;
 
+use App\Models\Activity;
+use App\Models\SocialActivity;
+use App\Models\Achievement;
+
 class FrontendController extends Controller
 {
     
@@ -34,6 +38,9 @@ class FrontendController extends Controller
         $data['client_front']= Client::where('status','1')->orderBy('id','desc')->limit(9)->get();
         $data['portfolio']= Portfolio::where('status','1')->orderBy('id','desc')->limit(6)->get();
         $data['news']=News::where('status','1')->orderBy('id','desc')->limit(3)->get();
+        $data['activities']=Activity::where('status','1')->orderBy('id','desc')->limit(3)->get();
+         $data['social_activities']=SocialActivity::where('status','1')->orderBy('id','desc')->limit(3)->get();
+         $data['achievements']=Achievement::where('status','1')->orderBy('id','desc')->limit(3)->get();
           //dd($data['news']);
         $data['overview']= About::where('status','1')->first();  
         $data['place']= Place::where('status','1')->orderBy('id','desc')->limit(4)->get();

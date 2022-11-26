@@ -16,11 +16,13 @@
                 @if($page_name!='Album')
                 <ul class="primary-menu nav nav-pills">
                     <li class="nav-item current"><a class="nav-link smoth-animation-two" href="#home"><i data-feather="home"></i> Home</a></li>
-                    <li class="nav-item"><a class="nav-link smoth-animation-two" href="#features"> <i data-feather="briefcase"></i>Features</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link smoth-animation-two" href="#features"> <i data-feather="briefcase"></i>Features</a></li> -->
                     <li class="nav-item"><a class="nav-link smoth-animation-two" href="#portfolio"><i data-feather="layers"></i>Portfolio</a></li>
                     <li class="nav-item"><a class="nav-link smoth-animation-two" href="#resume"><i data-feather="users"></i>Resume</a></li>
+                      <li class="nav-item"><a class="nav-link smoth-animation-two" href="#Social"><i data-feather="briefcase"></i>Social activity </a></li>
+                      <li class="nav-item"><a class="nav-link smoth-animation-two" href="#Achievement"><i data-feather="briefcase"></i>Achievement </a></li>
                      <li class="nav-item"><a class="nav-link smoth-animation-two" href="{{route('album.cat')}}" target="_blank"><i data-feather="image"></i>Media</a></li>
-                      <li class="nav-item"><a class="nav-link smoth-animation-two" href="#pricing"><i data-feather="shopping-cart"></i>Recent activity </a></li>
+                      <li class="nav-item"><a class="nav-link smoth-animation-two" href="#Activity"><i data-feather="shopping-cart"></i>Recent activity </a></li>
                     <li class="nav-item"><a class="nav-link smoth-animation-two" href="#clients"><i data-feather="user"></i>Clients</a></li>
                    
                     <li class="nav-item"><a class="nav-link smoth-animation-two" href="#blog"><i data-feather="image"></i>blog</a></li>
@@ -98,9 +100,12 @@
             <div class="content">
                 <ul class="primary-menu nav nav-pills">
                     <li class="nav-item"><a class="nav-link smoth-animation-two active" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link smoth-animation-two" href="#features">Features</a></li>
+                  <!--   <li class="nav-item"><a class="nav-link smoth-animation-two" href="#features">Features</a></li> -->
                     <li class="nav-item"><a class="nav-link smoth-animation-two" href="#portfolio">Portfolio</a></li>
                     <li class="nav-item"><a class="nav-link smoth-animation-two" href="#resume">Resume</a></li>
+                     <li class="nav-item"><a class="nav-link smoth-animation-two" href="{{route('album.cat')}}" target="_blank"><i data-feather="image"></i>Media</a></li>
+                      <li class="nav-item"><a class="nav-link smoth-animation-two" href="#Activity"><i data-feather="shopping-cart"></i>Recent activity </a></li>
+                   
                     <li class="nav-item"><a class="nav-link smoth-animation-two" href="#clients">Clients</a></li>
                     <li class="nav-item"><a class="nav-link smoth-animation-two" href="#pricing">Pricing</a></li>
                     <li class="nav-item"><a class="nav-link smoth-animation-two" href="#blog">blog</a></li>

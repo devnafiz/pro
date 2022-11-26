@@ -6,8 +6,8 @@
     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="{{route('news.all')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-list fa-sm text-white-50"></i>  News List</a>
+                        <a href="{{route('activity.all')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-list fa-sm text-white-50"></i>  Activity List</a>
                     </div>
 
                     <!-- Content Row -->
@@ -25,41 +25,27 @@
                     <div class="col-lg-12">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Create News </h1>
+                                <h1 class="h4 text-gray-900 mb-4">Create Activity </h1>
                             </div>
-                            <form class="user" method="POST"  action="{{route('resume.store')}}" enctype="multipart/form-data">
+                            <form class="user" method="POST"  action="{{route('activity.store')}}" enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" name="cat_id" value="{{$id}}">
                                 <div class="form-group ">
                                     <div class="col-sm-12 mb-3 mb-sm-0">
                                         <input type="text" class="form-control " placeholder="{{ __('Please enter Heading') }}" type="text" id="heading" name="heading">
                                     </div>
                                     
                                 </div>
-                                 <div class="form-group ">
-                                    <div class="col-sm-12 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control " placeholder="{{ __('Please enter Rating') }}" id="rating" name="rating">
-                                    </div>
-                                    
-                                </div>
                                 <div class="form-group ">
                                     <div class="col-sm-12 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control " placeholder="{{ __('Please enter Qualification and Date') }}" id="sub_heading" name="sub_heading">
-                                    </div>
-                                    
-                                </div>
-                                
-
-                                 <div class="form-group ">
-                                    <div class="col-sm-12 mb-3 mb-sm-0">
-                                       @foreach($category as $val)
-                                        <input type="radio"   id="rating" name="sub_cat_id" value="{{$val->id}}">
-                                        <label>{{$val->heading}}</label>
+                                        <select class="form-control" name="cat_id">
+                                          <option value="">---select option--</option>
+                                          @foreach($news_cat as $val)
+                                          <option value="{{$val->id}}">{{$val->title}}</option>
                                          @endforeach
+                                        </select>
                                     </div>
                                     
                                 </div>
-                                
                                 <div class="form-group">
                                     <div class="col-sm-12 mb-3 mb-sm-0">
                                     <label class="control-label" for="first-name"> {{__('Description')}} <span class="required"></span>
@@ -71,7 +57,12 @@
                                      </div>    
                                 </div>
                               <div class="form-group row">
-                                    
+                                     <!-- <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control iconvalue" name="icon" value="{{ __('Choose icon') }}">
+                                    <span class="input-group-append">
+                                  <button type="button" class="btnicon btn btn-outline-secondary" role="iconpicker"></button>
+                                     </span>
+                                    </div>-->
                                     <div class="col-sm-6">
                                         <label class="control-label" for="first-name">
                                             {{__('Status')}}: <span class="required">*</span>
@@ -85,7 +76,21 @@
                                  <input type="hidden" name="status" value="1" id="status3">
                                          <small class="text-info"> <i class="text-dark feather icon-help-circle"></i>({{__('Please Choose Status')}})</small>
                                         </div>
-                                        
+                                        <div class="col-sm-6">
+                                             <label class="control-label" for="first-name"> {{__("Image")}} <span class="required">*</span>
+                                          </label>
+                                              <div class="input-group">
+
+                                                <input required  id="image" name="image" type="file"
+                                                    class="form-control">
+                                                <!-- <div class="input-group-append">
+                                                    <span data-input="image"
+                                                        class="bg-primary text-light midia-toggle input-group-text">{{ __("Browse") }}</span>
+                                                </div> -->
+                                              </div>
+                                              <small class="text-info"> <i class="text-dark feather icon-help-circle"></i>({{__("Choose Image for blog post")}})</small>
+
+                                        </div>
                                     </div>
 
                                 <button class="btn btn-primary btn-user btn-block" type="submit">Save</button>

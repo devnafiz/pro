@@ -80,12 +80,12 @@
                 </div>
             </li>
              <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities7"
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities9"
                     aria-expanded="true" aria-controls="collapseUtilities2">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Resume</span>
                 </a>
-                <div id="collapseUtilities7" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseUtilities9" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                        
@@ -114,12 +114,12 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities2"
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities23"
                     aria-expanded="true" aria-controls="collapseUtilities2">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Blogs</span>
                 </a>
-                <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseUtilities23" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                        
@@ -162,14 +162,18 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
 
-                    <a class="nav-link collapse-item" href="{{route('slider.all')}}">
+                    <!-- <a class="nav-link collapse-item" href="{{route('slider.all')}}">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Slider</span></a>
+                    <span>Slider</span></a>-->
                        
-                        <a class="collapse-item" href="{{route('feature.all')}}">ALL Feature</a>
+                      <!--   <a class="collapse-item" href="{{route('feature.all')}}">ALL Feature</a> -->
                        <!--  <a class="collapse-item" href="{{route('news.all')}}">All News</a>
                         <a class="collapse-item" href="{{route('banner.all')}}">All banner</a>-->
-                         <a class="collapse-item" href="{{route('about.all')}}">All Overview</a> 
+                        <a class="collapse-item" href="{{route('about.all')}}">All Overview</a> 
+                        <a class="collapse-item" href="{{route('activity.all')}}">Recent Activity</a>
+                        <a class="collapse-item" href="{{route('social.activity.all')}}">Social Activity</a>
+                        <a class="collapse-item" href="{{route('achievement.all')}}"> All Achievement</a>
+                           
                         
                     </div>
                 </div>
