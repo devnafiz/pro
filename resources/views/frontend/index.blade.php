@@ -1042,12 +1042,12 @@
                         <div class="contact-form-wrapper">
                             <div class="introduce">
 
-                                <form class="rnt-contact-form rwt-dynamic-form row" id="contact-form" method="POST" action="mail.php">
+                                <form class="rnt-contact-form rwt-dynamic-form row" id="contact-form" method="POST" action="{{route('contact.store')}}">
 
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="contact-name">Your Name</label>
-                                            <input class="form-control form-control-lg" name="contact-name" id="contact-name" type="text">
+                                            <input class="form-control form-control-lg" name="name" id="contact-name" type="text">
                                         </div>
                                     </div>
 
@@ -1061,7 +1061,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="contact-email">Email</label>
-                                            <input class="form-control form-control-sm" id="contact-email" name="contact-email" type="email">
+                                            <input class="form-control form-control-sm" id="contact-email" name="email" type="email">
                                         </div>
                                     </div>
 
@@ -1075,7 +1075,7 @@
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="contact-message">Your Message</label>
-                                            <textarea name="contact-message" id="contact-message" cols="30" rows="10"></textarea>
+                                            <textarea name="message" id="contact-message" cols="30" rows="10"></textarea>
                                         </div>
                                     </div>
 

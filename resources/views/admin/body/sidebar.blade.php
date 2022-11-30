@@ -113,6 +113,11 @@
                     </div>
                 </div>
             </li>
+             <li class="nav-item">
+                <a class="nav-link" href="{{route('video.all')}}">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span> All Videos</span></a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities23"
                     aria-expanded="true" aria-controls="collapseUtilities2">

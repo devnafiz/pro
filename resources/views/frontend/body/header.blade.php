@@ -29,9 +29,10 @@
                     <li class="nav-item"><a class="nav-link smoth-animation-two" href="#contacts"><i data-feather="message-circle"></i>Contact</a></li>
                 </ul>
                 @else
-                  <ul class="primary-menu ">
-                     <li class=" current"><a class=" " href="{{route('home')}}"><i data-feather="home"></i> Home</a></li>
-                      <li class="nav-item"><a class="nav-link smoth-animation-two" href="{{route('album.cat')}}"><i data-feather="image"></i>Media</a></li>
+                  <ul class="primary-menu1 ">
+                     <li ><a href="{{route('home')}}"><i data-feather="home"></i> Home</a></li>
+                      <li class="nav-item"><a  href="{{route('album.cat')}}"><i data-feather="image"></i>All Album</a></li>
+                      <li class="nav-item"><a href="{{route('all.videos')}}"><i data-feather="image"></i>All Video</a></li>
                 </ul> 
                 @endif
             </nav>

@@ -20,6 +20,7 @@ use App\Http\Controllers\backend\PlaceController;
 use App\Http\Controllers\backend\MapController;
 use App\Http\Controllers\backend\PopularDesController;
 use App\Http\Controllers\backend\OrderController;
+use App\Http\Controllers\backend\VideoController;
 
 use App\Http\Controllers\backend\albumCatContoller;
 use App\Http\Controllers\backend\albumContoller;
@@ -159,6 +160,17 @@ Route::middleware(['auth:admin', 'verified'])->get('/admin/dashboard', function 
 
 
     //Activity
+    //video
+
+    Route::get('admin/all/video',[VideoController::class,'index'])->name('video.all');
+     Route::get('admin/video/add',[VideoController::class,'addNews'])->name('video.add');
+
+    Route::post('admin/video/store',[VideoController::class,'store'])->name('video.store');
+
+    Route::get('admin/video/edit/{id}',[VideoController::class,'edit'])->name('video.edit');
+
+    Route::post('admin/video/update/{id}',[VideoController::class,'update'])->name('video.update');
+    Route::get('admin/video/delete/{id}',[VideoController::class,'delete'])->name('video.delete');
 
 
     //news
@@ -424,5 +436,6 @@ Route::middleware(['auth:admin', 'verified'])->get('/admin/dashboard', function 
 
     Route::get('album/name',[FrontendController::class,'albumCat'])->name('album.cat');
     Route::get('album/photo/{cat_name}',[FrontendController::class,'albumCatPhoto'])->name('album.photo');
+    Route::get('all/video',[FrontendController::class,'videos'])->name('all.videos');
 
 

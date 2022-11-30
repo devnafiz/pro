@@ -24,6 +24,7 @@ use App\Models\Album;
 use App\Models\Activity;
 use App\Models\SocialActivity;
 use App\Models\Achievement;
+use App\Models\Video;
 
 class FrontendController extends Controller
 {
@@ -140,7 +141,7 @@ class FrontendController extends Controller
         $data['news']=News::where('status','1')->orderBy('id','desc')->limit(3)->get();
           //dd($data['news']);
        
-      
+       $data['overview']= About::where('status','1')->first();  
 
           $data['album_name']=AlbumCat::all();
            $data['page_name'] ='Album';
@@ -160,7 +161,7 @@ class FrontendController extends Controller
         $data['portfolio']= Portfolio::where('status','1')->orderBy('id','desc')->limit(6)->get();
         $data['news']=News::where('status','1')->orderBy('id','desc')->limit(3)->get();
           //dd($data['news']);
-       
+        $data['overview']= About::where('status','1')->first();  
       
 
           $data['album_name']=AlbumCat::all();
@@ -172,6 +173,32 @@ class FrontendController extends Controller
 
 
     }
+
+     public function videos(Request $request){
+
+       
+        $data['maps']= Map::where('status','1')->orderBy('id','desc')->limit(5)->get();
+       // $data['p_des']= PopularDes::where('status','1')->orderBy('id','desc')->limit(3)->get();
+        $data['client_cat']= ClientCat::where('status','1')->orderBy('id','desc')->limit(6)->get();
+        $data['client_front']= Client::where('status','1')->orderBy('id','desc')->limit(9)->get();
+        $data['portfolio']= Portfolio::where('status','1')->orderBy('id','desc')->limit(6)->get();
+        $data['news']=News::where('status','1')->orderBy('id','desc')->limit(3)->get();
+          //dd($data['news']);
+       
+        $data['overview']= About::where('status','1')->first(); 
+        $data['all_video']=Video::where('status','1')->orderBy('id','desc')->paginate(6); 
+
+          $data['album_name']=AlbumCat::all();
+         // $data['album_photo']=Album::where('cat_id',$id)->paginate();
+          //$data['album_detail']=AlbumCat::where('id',$id)->first();
+          $data['page_name'] ='Album';
+
+          return view('frontend.all_video',$data);  
+
+
+    }
+
+
 
 
 }
